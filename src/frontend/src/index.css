@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Deep blue-black dark theme */
+    --background: 0.11 0.013 252;
+    --foreground: 0.92 0.005 265;
+    --card: 0.19 0.02 253;
+    --card-foreground: 0.92 0.005 265;
+    --popover: 0.22 0.022 252;
+    --popover-foreground: 0.92 0.005 265;
+    --primary: 0.5 0.26 295;
+    --primary-foreground: 0.985 0 0;
+    --secondary: 0.27 0.025 252;
+    --secondary-foreground: 0.92 0.005 265;
+    --muted: 0.22 0.022 252;
+    --muted-foreground: 0.7 0.006 265;
+    --accent: 0.56 0.24 295;
+    --accent-foreground: 0.985 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.27 0.025 252;
+    --input: 0.22 0.022 252;
+    --ring: 0.5 0.26 295;
+    --chart-1: 0.5 0.26 295;
+    --chart-2: 0.56 0.24 295;
+    --chart-3: 0.7 0.006 265;
+    --chart-4: 0.92 0.005 265;
+    --chart-5: 0.27 0.025 252;
+    --sidebar: 0.19 0.02 253;
+    --sidebar-foreground: 0.92 0.005 265;
+    --sidebar-primary: 0.5 0.26 295;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.27 0.025 252;
+    --sidebar-accent-foreground: 0.92 0.005 265;
+    --sidebar-border: 0.27 0.025 252;
+    --sidebar-ring: 0.5 0.26 295;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "BricolageGrotesque", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+
+  .phone-shadow {
+    box-shadow: 0 0 0 2px oklch(var(--border)), 0 25px 60px -12px
+      rgba(0, 0, 0, 0.6), 0 0 80px -20px oklch(var(--primary) / 0.15);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px -5px oklch(var(--primary) / 0.4);
+  }
+
+  .step-connector {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      oklch(var(--primary)),
+      oklch(var(--border))
+    );
+  }
+
+  .step-connector-inactive {
+    flex: 1;
+    height: 2px;
+    background: oklch(var(--border));
+  }
+}
